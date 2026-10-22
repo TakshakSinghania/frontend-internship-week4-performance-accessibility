@@ -1,0 +1,241 @@
+{
+  "generated": "2026-10-22T22:24:45.224Z",
+  "environment": {
+    "lighthouse": "13.5.0",
+    "chrome": "Chrome/156.0.0.0",
+    "throttling": "Lighthouse defaults (mobile: simulated slow 4G + 4x CPU; desktop preset)"
+  },
+  "lighthouse": {
+    "baseline-mobile": {
+      "runs": [
+        74,
+        74,
+        74
+      ],
+      "scores": {
+        "performance": 74,
+        "accessibility": 39,
+        "best-practices": 100,
+        "seo": 82,
+        "agentic-browsing": 50
+      },
+      "metrics": {
+        "fcpMs": 1669,
+        "lcpMs": 35106,
+        "tbtMs": 0,
+        "cls": 0,
+        "speedIndexMs": 1669,
+        "totalKB": 6491,
+        "requests": 9
+      },
+      "failing": [
+        "largest-contentful-paint: Largest Contentful Paint (35.1 s)",
+        "interactive: Time to Interactive (35.1 s)",
+        "unsized-images: Image elements do not have explicit `width` and `height`",
+        "color-contrast: Background and foreground colors do not have a sufficient contrast ratio.",
+        "heading-order: Heading elements are not in a sequentially-descending order",
+        "html-has-lang: `<html>` element does not have a `[lang]` attribute",
+        "image-alt: Image elements do not have `[alt]` attributes",
+        "label: Form elements do not have associated labels",
+        "landmark-one-main: Document does not have a main landmark.",
+        "meta-viewport: `[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+        "select-name: Select elements do not have associated label elements.",
+        "td-has-header: `<td>` elements in a large `<table>` do not have table headers.",
+        "total-byte-weight: Avoid enormous network payloads (Total size was 6,491 KiB)",
+        "unminified-css: Minify CSS (Est savings of 6 KiB)",
+        "unminified-javascript: Minify JavaScript (Est savings of 42 KiB)",
+        "unused-css-rules: Reduce unused CSS (Est savings of 31 KiB)",
+        "unused-javascript: Reduce unused JavaScript (Est savings of 57 KiB)",
+        "meta-description: Document does not have a meta description",
+        "agent-accessibility-tree: Accessibility tree is not well-formed",
+        "image-delivery-insight: Improve image delivery (Est savings of 6,185 KiB)",
+        "lcp-discovery-insight: LCP request discovery",
+        "network-dependency-tree-insight: Network dependency tree",
+        "render-blocking-insight: Render-blocking requests (Est savings of 1,060 ms)"
+      ]
+    },
+    "baseline-desktop": {
+      "runs": [
+        76,
+        76,
+        76
+      ],
+      "scores": {
+        "performance": 76,
+        "accessibility": 39,
+        "best-practices": 100,
+        "seo": 82,
+        "agentic-browsing": 50
+      },
+      "metrics": {
+        "fcpMs": 369,
+        "lcpMs": 5926,
+        "tbtMs": 0,
+        "cls": 0,
+        "speedIndexMs": 369,
+        "totalKB": 6491,
+        "requests": 9
+      },
+      "failing": [
+        "largest-contentful-paint: Largest Contentful Paint (5.9 s)",
+        "interactive: Time to Interactive (5.9 s)",
+        "unsized-images: Image elements do not have explicit `width` and `height`",
+        "color-contrast: Background and foreground colors do not have a sufficient contrast ratio.",
+        "heading-order: Heading elements are not in a sequentially-descending order",
+        "html-has-lang: `<html>` element does not have a `[lang]` attribute",
+        "image-alt: Image elements do not have `[alt]` attributes",
+        "label: Form elements do not have associated labels",
+        "landmark-one-main: Document does not have a main landmark.",
+        "meta-viewport: `[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+        "select-name: Select elements do not have associated label elements.",
+        "td-has-header: `<td>` elements in a large `<table>` do not have table headers.",
+        "total-byte-weight: Avoid enormous network payloads (Total size was 6,491 KiB)",
+        "unminified-css: Minify CSS (Est savings of 6 KiB)",
+        "unminified-javascript: Minify JavaScript (Est savings of 42 KiB)",
+        "unused-css-rules: Reduce unused CSS (Est savings of 31 KiB)",
+        "unused-javascript: Reduce unused JavaScript (Est savings of 57 KiB)",
+        "meta-description: Document does not have a meta description",
+        "agent-accessibility-tree: Accessibility tree is not well-formed",
+        "image-delivery-insight: Improve image delivery (Est savings of 6,182 KiB)",
+        "lcp-discovery-insight: LCP request discovery",
+        "network-dependency-tree-insight: Network dependency tree",
+        "render-blocking-insight: Render-blocking requests (Est savings of 210 ms)"
+      ]
+    },
+    "optimised-mobile": {
+      "runs": [
+        100,
+        100,
+        100
+      ],
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "agentic-browsing": 100
+      },
+      "metrics": {
+        "fcpMs": 766,
+        "lcpMs": 984,
+        "tbtMs": 0,
+        "cls": 0,
+        "speedIndexMs": 766,
+        "totalKB": 49,
+        "requests": 8
+      },
+      "failing": []
+    },
+    "optimised-desktop": {
+      "runs": [
+        100,
+        100,
+        100
+      ],
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "agentic-browsing": 100
+      },
+      "metrics": {
+        "fcpMs": 205,
+        "lcpMs": 245,
+        "tbtMs": 0,
+        "cls": 0,
+        "speedIndexMs": 205,
+        "totalKB": 37,
+        "requests": 8
+      },
+      "failing": []
+    }
+  },
+  "axe": {
+    "baseline": {
+      "version": "4.14.0",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 23
+        },
+        {
+          "id": "heading-order",
+          "impact": "moderate",
+          "help": "Heading levels should only increase by one",
+          "nodes": 1
+        },
+        {
+          "id": "html-has-lang",
+          "impact": "serious",
+          "help": "<html> element must have a lang attribute",
+          "nodes": 1
+        },
+        {
+          "id": "image-alt",
+          "impact": "critical",
+          "help": "Images must have alternative text",
+          "nodes": 1
+        },
+        {
+          "id": "label",
+          "impact": "critical",
+          "help": "Form elements must have labels",
+          "nodes": 2
+        },
+        {
+          "id": "landmark-one-main",
+          "impact": "moderate",
+          "help": "Document should have one main landmark",
+          "nodes": 1
+        },
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": 1
+        },
+        {
+          "id": "region",
+          "impact": "moderate",
+          "help": "All page content should be contained by landmarks",
+          "nodes": 17
+        },
+        {
+          "id": "select-name",
+          "impact": "critical",
+          "help": "Select element must have an accessible name",
+          "nodes": 1
+        }
+      ],
+      "totalNodes": 48,
+      "passes": 20
+    },
+    "optimised": {
+      "version": "4.14.0",
+      "violations": [],
+      "totalNodes": 0,
+      "passes": 51
+    }
+  },
+  "validation": {
+    "baseline": {
+      "htmlErrors": 6,
+      "htmlRules": [
+        "element-required-attributes",
+        "wcag/h37",
+        "prefer-tbody",
+        "no-dup-id",
+        "wcag/h32"
+      ],
+      "cssErrors": 0
+    },
+    "optimised": {
+      "htmlErrors": 0,
+      "htmlRules": [],
+      "cssErrors": 0
+    }
+  }
+}
