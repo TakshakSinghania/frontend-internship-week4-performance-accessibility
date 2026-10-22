@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" font-family="system-ui, sans-serif" font-size="14">
+  <rect width="480" height="300" fill="#eef3ee"/>
+  <path d="M0 230 C120 200 200 260 300 235 S440 210 480 225 V300 H0Z" fill="#a9cfe0"/>
+  <text x="330" y="275" fill="#12355b">Upper Lake</text>
+  <rect x="0" y="120" width="480" height="26" fill="#ffffff" stroke="#c9d3c9"/>
+  <text x="12" y="138" fill="#4a5560">Ghat Road</text>
+  <rect x="300" y="0" width="22" height="300" fill="#ffffff" stroke="#c9d3c9"/>
+  <rect x="170" y="56" width="110" height="56" rx="6" fill="#12355b"/>
+  <text x="225" y="89" fill="#ffffff" text-anchor="middle" font-weight="700">Library</text>
+  <rect x="170" y="158" width="110" height="40" rx="6" fill="#ffffff" stroke="#0b6e69" stroke-width="2"/>
+  <text x="225" y="183" fill="#0b6e69" text-anchor="middle">Bus stand</text>
+  <circle cx="225" cy="133" r="6" fill="#b3261e"/>
+</svg>

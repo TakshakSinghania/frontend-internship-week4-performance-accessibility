@@ -1,0 +1,177 @@
+/* Riverside Public Library — optimised stylesheet.
+   Source file; the page loads the minified build (css/styles.min.css, made by `npm run build`).
+   Kept small on purpose: one file, class selectors only, no framework, system fonts. */
+
+:root {
+  --navy: #12355b;
+  --navy-dark: #0c2440;
+  --teal: #0b6e69;
+  --cream: #fbf8f2;
+  --sand: #f1ece1;
+  --ink: #1b1f24;
+  --muted: #4a5560;
+  --line: #cfc8b8;
+  --error: #b3261e;
+  --focus: #ffbf47;
+  --max: 70rem;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--cream);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 0.75rem; }
+h1 { font-size: clamp(2rem, 1.5rem + 2.5vw, 3.25rem); }
+h2 { font-size: clamp(1.5rem, 1.3rem + 1vw, 2rem); color: var(--navy); }
+h3 { font-size: 1.15rem; }
+p { margin: 0 0 1rem; }
+img, svg { display: block; max-width: 100%; height: auto; }
+a { color: var(--navy); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:hover { color: var(--teal); text-decoration-thickness: 2px; }
+ul { padding: 0; margin: 0; list-style: none; }
+
+/* One focus style everywhere: yellow fill ring plus a dark outline, visible on light and dark backgrounds */
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 0;
+  box-shadow: 0 0 0 6px var(--focus);
+}
+
+main:focus { outline: none; }
+
+.wrap { width: min(100% - 2.5rem, var(--max)); margin-inline: auto; }
+.narrow { max-width: 42rem; }
+.section { padding-block: clamp(2.5rem, 2rem + 3vw, 4.5rem); }
+.section-alt { background: var(--sand); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  top: -10rem;
+  left: 1rem;
+  z-index: 10;
+  padding: 0.75rem 1rem;
+  background: var(--focus);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.skip-link:focus { top: 1rem; }
+
+/* Header */
+.site-header { background: #fff; border-bottom: 1px solid var(--line); }
+.header-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1.5rem; padding-block: 0.5rem; }
+.logo { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 44px; font-weight: 700; font-size: 1.1rem; color: var(--navy); text-decoration: none; }
+.nav-list { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.nav-list a { display: inline-flex; align-items: center; min-height: 44px; padding-inline: 0.75rem; color: var(--ink); font-weight: 600; text-decoration: none; }
+.nav-list a:hover { color: var(--navy); text-decoration: underline; }
+
+/* Hero: text panel and image side by side from 50em; stacked below */
+.hero { display: grid; background: var(--navy); color: #fff; }
+.hero-img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 2 / 1; }
+.hero-text { padding-block: 2.5rem; }
+.hero-text p { max-width: 36rem; font-size: 1.1rem; }
+.status { display: inline-block; padding: 0.4rem 0.8rem; border-radius: 4px; background: #fff; color: var(--navy); font-weight: 700; font-size: 1rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.6rem 1.25rem;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary { background: var(--teal); color: #fff; }
+.btn-primary:hover { background: #085550; color: #fff; text-decoration: underline; }
+.btn-secondary { border-color: #fff; color: #fff; }
+.btn-secondary:hover { background: #fff; color: var(--navy); }
+.hero .btn-primary { background: #fff; color: var(--navy); }
+.hero .btn-primary:hover { background: var(--sand); color: var(--navy); }
+
+/* Visit */
+.grid-2 { display: grid; gap: 2rem; align-items: start; }
+.hours { width: 100%; margin-bottom: 1.5rem; border-collapse: collapse; background: #fff; }
+.hours caption { padding-bottom: 0.5rem; text-align: left; font-weight: 700; }
+.hours th, .hours td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--line); text-align: left; }
+.hours thead th { background: var(--sand); }
+address { margin-bottom: 1rem; font-style: normal; }
+.map { margin: 0; }
+.map img { width: 100%; border: 1px solid var(--line); }
+.map figcaption { margin-top: 0.5rem; color: var(--muted); }
+
+/* Events and services */
+.cards { display: grid; gap: 1.5rem; }
+.card { height: 100%; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+.card img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.card-body { padding: 1.25rem; }
+.when { font-weight: 700; color: var(--teal); }
+.services { display: grid; gap: 1rem; }
+.services li { padding: 1.25rem; border-left: 4px solid var(--teal); background: #fff; }
+.services p { margin: 0; color: var(--muted); }
+.ticks li { position: relative; padding: 0.35rem 0 0.35rem 1.75rem; }
+.ticks li::before { content: ""; position: absolute; top: 0.75rem; left: 0.25rem; width: 0.7rem; height: 0.4rem; border-bottom: 3px solid var(--teal); border-left: 3px solid var(--teal); transform: rotate(-45deg); }
+
+/* Form */
+.form { display: grid; gap: 1.25rem; }
+.field { margin: 0; padding: 0; border: 0; }
+.field label, .field legend { display: block; margin-bottom: 0.35rem; font-weight: 700; }
+.req-mark { font-weight: 400; font-size: 0.9rem; color: var(--muted); }
+.req-mark::before { content: "("; }
+.req-mark::after { content: ")"; }
+.hint { margin: 0 0 0.35rem; color: var(--muted); }
+input, select { width: 100%; min-height: 48px; padding: 0.5rem 0.75rem; border: 2px solid var(--ink); border-radius: 4px; background: #fff; color: var(--ink); font: inherit; }
+.check { display: flex; align-items: center; gap: 0.6rem; min-height: 44px; font-weight: 400 !important; }
+.check input { width: 1.4rem; min-height: 0; height: 1.4rem; accent-color: var(--teal); }
+[aria-invalid="true"] { border-color: var(--error); border-width: 3px; }
+.error { margin: 0.35rem 0 0; color: var(--error); font-weight: 700; }
+.form-status:empty { display: none; }
+.form-status { margin: 0; padding: 1rem; border-left: 6px solid var(--teal); background: #e3f1ef; font-weight: 700; }
+.form-status.is-error { border-color: var(--error); background: #fbe9e7; }
+.notice { padding: 1rem; background: #fff; border-left: 6px solid var(--navy); }
+
+/* FAQ (native details/summary: keyboard and screen-reader support built in) */
+details { border-bottom: 1px solid var(--line); }
+summary { min-height: 48px; padding: 0.75rem 0; font-weight: 700; cursor: pointer; }
+summary:hover { color: var(--teal); }
+details p { padding-bottom: 0.5rem; color: var(--muted); }
+
+.site-footer { padding-block: 2rem; background: var(--navy-dark); color: #fff; }
+.site-footer a { color: #fff; }
+.site-footer p:last-child { margin: 0; }
+
+@media (min-width: 40em) {
+  .cards, .services { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 50em) {
+  .hero { grid-template-columns: 1fr 1fr; align-items: center; }
+  .hero picture { order: 2; height: 100%; }
+  .hero-img { aspect-ratio: auto; }
+  .hero-text { width: auto; margin-inline: max(1.25rem, (100vw - var(--max)) / 2) 2rem; padding-block: 4rem; }
+  .grid-2 { grid-template-columns: 1.1fr 1fr; gap: 3rem; }
+}
+
+@media (min-width: 60em) {
+  .cards, .services { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
