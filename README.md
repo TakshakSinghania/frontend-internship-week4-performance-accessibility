@@ -24,7 +24,7 @@ An information and sign-up page for a fictional public library, rebuilt from an 
 
 ### Hosted results (GitHub Pages, single runs)
 
-Live pages: [optimised](https://takshaksinghania.github.io/frontend-internship-week4-performance-accessibility/) · [baseline](https://takshaksinghania.github.io/frontend-internship-week4-performance-accessibility/baseline/)
+Tested at `https://takshaksinghania.github.io/frontend-internship-week4-performance-accessibility/` (and `/baseline/`). The GitHub Pages deployment was taken offline on 23 October 2026 after testing, so these addresses no longer load. The measurements below were recorded while it was live and are unchanged.
 
 | | Baseline | Optimised |
 |---|---|---|

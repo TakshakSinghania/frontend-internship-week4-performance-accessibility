@@ -11,7 +11,7 @@
 | axe-core | 4.14.0, rule sets `wcag2a, wcag2aa, wcag21a, wcag21aa, wcag22aa, best-practice` |
 | Validators | html-validate 11.17.0 (`.htmlvalidate.json`), csstree-validator 4.0.1 |
 | Server (local audits) | `scripts/serve.mjs` on 127.0.0.1: gzip for HTML/CSS/JS/SVG, `Cache-Control: no-cache` |
-| Hosting (public tests) | GitHub Pages, `https://takshaksinghania.github.io/frontend-internship-week4-performance-accessibility/` |
+| Hosting (public tests) | GitHub Pages, `https://takshaksinghania.github.io/frontend-internship-week4-performance-accessibility/` (taken offline 23 October 2026 after testing) |
 | WAVE | wave.webaim.org web interface, run against the hosted pages |
 | WebPageTest | webpagetest.org anonymous instant test (Catchpoint), Chrome 152, 1 run per test |
 | Manual browser | Built-in Chromium browser pane of the Claude desktop app |
@@ -106,6 +106,8 @@ Both versions were published with GitHub Pages from commit `9e98b41` and tested 
 
 - Optimised: <https://takshaksinghania.github.io/frontend-internship-week4-performance-accessibility/>
 - Baseline: <https://takshaksinghania.github.io/frontend-internship-week4-performance-accessibility/baseline/>
+
+> The GitHub Pages deployment was taken offline on 23 October 2026 after testing, so these addresses no longer load. The measurements below were recorded while it was live and are unchanged. To test again, re-enable Pages (Settings → Pages → Deploy from branch `main`, folder `/`) or serve locally with `npm run serve`.
 
 GitHub Pages served text files gzipped with `cache-control: max-age=600`. Raw numbers and result links are in [`reports/hosted-tests.json`](reports/hosted-tests.json).
 
