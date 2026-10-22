@@ -1,0 +1,47 @@
+{
+  "recorded": "2026-10-22T23:04Z",
+  "site": {
+    "host": "GitHub Pages",
+    "optimised": "https://takshaksinghania.github.io/frontend-internship-week4-performance-accessibility/",
+    "baseline": "https://takshaksinghania.github.io/frontend-internship-week4-performance-accessibility/baseline/",
+    "builtFromCommit": "9e98b4110136a0dc663c0a18eeccb84cf5ecf78f",
+    "responseHeaders": "content-encoding: gzip, cache-control: max-age=600"
+  },
+  "wave": {
+    "tool": "WAVE web interface (wave.webaim.org), styles on",
+    "optimised": {
+      "report": "https://wave.webaim.org/report#/https://takshaksinghania.github.io/frontend-internship-week4-performance-accessibility/",
+      "errors": 0, "contrastErrors": 0, "alerts": 3, "features": 16, "structuralElements": 32, "aria": 15, "aimScore": 10,
+      "alertDetails": ["Long alternative text (location map)", "Possible heading (opening-status paragraph)", "Noscript element (sign-up fallback notice)"]
+    },
+    "baseline": {
+      "report": "https://wave.webaim.org/report#/https://takshaksinghania.github.io/frontend-internship-week4-performance-accessibility/baseline/",
+      "errors": 7, "contrastErrors": 32, "alerts": 15, "features": 0, "structuralElements": 7, "aria": 0, "aimScore": 3.4,
+      "errorDetails": ["Missing alternative text (1)", "Missing form label (5)", "Language missing or invalid (1)"],
+      "alertDetails": ["Select missing label (1)", "Suspicious alternative text (3)", "A nearby image has the same alternative text (2)", "No page regions (1)", "Skipped heading level (1)", "Suspicious link text (4)", "Redundant link (2)", "Layout table (1)"]
+    }
+  },
+  "webpagetest": {
+    "tool": "WebPageTest anonymous instant test (webpagetest.org, run by Catchpoint), Chrome 152, 1 run per test",
+    "note": "Result links are public Catchpoint pages and may expire.",
+    "runs": [
+      { "page": "optimised", "profile": "Mobile: iPhone 15, 4G (9 Mbps, 170 ms RTT), Singapore", "runTime": "2026-10-22T22:58:40Z",
+        "result": "https://public.catchpoint.com/UI/Entry/WPTITP/ARVi-D-E-B2AD.HX.HjfL89qaoAA-N",
+        "fcpMs": 1122, "lcpMs": 1630, "cls": 0, "ttfbMs": 955, "startRenderMs": 1100, "speedIndexMs": 1300, "tbtMs": 0,
+        "documentCompleteMs": 1486, "totalTimeMs": 1882, "bytes": 18336, "requests": 5, "http4xx": 0, "renderBlocking": 0 },
+      { "page": "baseline", "profile": "Mobile: iPhone 15, 4G (9 Mbps, 170 ms RTT), Singapore", "runTime": "2026-10-22T23:00:36Z",
+        "result": "https://public.catchpoint.com/UI/Entry/WPTITP/ARVk-D-E-B2AD.HX_jfL89qaoAA-N",
+        "fcpMs": 2210, "lcpMs": 5109, "cls": 0, "ttfbMs": 950, "startRenderMs": 2200, "speedIndexMs": 3624, "tbtMs": 0,
+        "documentCompleteMs": 7915, "totalTimeMs": 8325, "bytes": 6652435, "requests": 10, "http4xx": 1, "renderBlocking": 4 },
+      { "page": "optimised", "profile": "Desktop, WiFi (240/120 Mbps, 2 ms RTT), Tokyo", "runTime": "2026-10-22T23:02:20Z",
+        "result": "https://public.catchpoint.com/UI/Entry/WPTITP/ARVm-D-E-B2AD.HYGjfL89qaoAA-N",
+        "fcpMs": 355, "lcpMs": 572, "cls": 0, "ttfbMs": 222, "startRenderMs": 300, "speedIndexMs": 441, "tbtMs": 0,
+        "documentCompleteMs": 505, "totalTimeMs": 659, "bytes": 35196, "requests": 8, "http4xx": 0, "renderBlocking": 0 },
+      { "page": "baseline", "profile": "Desktop, WiFi (240/120 Mbps, 2 ms RTT), Tokyo", "runTime": "2026-10-22T23:03:39Z",
+        "result": "https://public.catchpoint.com/UI/Entry/WPTITP/ARVn-D-E-B2AD.HYIjfL89qaoAA-N",
+        "fcpMs": 665, "lcpMs": 1156, "cls": 0.439, "ttfbMs": 213, "startRenderMs": 600, "speedIndexMs": 1071, "tbtMs": 0,
+        "documentCompleteMs": 1121, "totalTimeMs": 1302, "bytes": 6647293, "requests": 10, "http4xx": 1, "renderBlocking": 4 }
+    ],
+    "baseline4xx": "https://takshaksinghania.github.io/favicon.ico returned 404 (the baseline has no <link rel=\"icon\">, so the browser requests /favicon.ico from the domain root)"
+  }
+}

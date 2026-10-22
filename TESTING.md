@@ -10,7 +10,10 @@
 | Lighthouse | 13.5.0 via the Node API (`scripts/audit.mjs`) |
 | axe-core | 4.14.0, rule sets `wcag2a, wcag2aa, wcag21a, wcag21aa, wcag22aa, best-practice` |
 | Validators | html-validate 11.17.0 (`.htmlvalidate.json`), csstree-validator 4.0.1 |
-| Server | `scripts/serve.mjs` on 127.0.0.1: gzip for HTML/CSS/JS/SVG, `Cache-Control: no-cache` |
+| Server (local audits) | `scripts/serve.mjs` on 127.0.0.1: gzip for HTML/CSS/JS/SVG, `Cache-Control: no-cache` |
+| Hosting (public tests) | GitHub Pages, `https://takshaksinghania.github.io/frontend-internship-week4-performance-accessibility/` |
+| WAVE | wave.webaim.org web interface, run against the hosted pages |
+| WebPageTest | webpagetest.org anonymous instant test (Catchpoint), Chrome 152, 1 run per test |
 | Manual browser | Built-in Chromium browser pane of the Claude desktop app |
 
 ### Lighthouse settings
@@ -97,6 +100,66 @@ Baseline violations: `color-contrast` (serious, 23), `region` (moderate, 17), `l
 | First Tab shows the skip link top-left with the yellow focus ring; Enter → `#main`; next Tab → "Get a free library card" | Pass |
 | Screenshots of baseline/optimised at 375 and 1280 px, focus state and form errors reviewed (`docs/screenshots/`) | Pass |
 
+## Hosted tests (GitHub Pages, 22–23 October 2026)
+
+Both versions were published with GitHub Pages from commit `9e98b41` and tested on the public internet:
+
+- Optimised: <https://takshaksinghania.github.io/frontend-internship-week4-performance-accessibility/>
+- Baseline: <https://takshaksinghania.github.io/frontend-internship-week4-performance-accessibility/baseline/>
+
+GitHub Pages served text files gzipped with `cache-control: max-age=600`. Raw numbers and result links are in [`reports/hosted-tests.json`](reports/hosted-tests.json).
+
+### WAVE (wave.webaim.org web interface)
+
+| | Baseline | Optimised |
+|-|----------|-----------|
+| Errors | **7** (missing alt ×1, missing form label ×5, language missing ×1) | **0** |
+| Contrast errors | **32** | **0** |
+| Alerts | 15 | 3 |
+| Features / structural elements / ARIA | 0 / 7 / 0 | 16 / 32 / 15 |
+| AIM score | 3.4 / 10 | **10 / 10** |
+
+Baseline alerts: select missing label, suspicious alt text ×3, nearby image with the same alt ×2, no page regions, skipped heading level, suspicious link text ×4, redundant link ×2, layout table.
+
+The 3 alerts on the optimised page were each reviewed and kept on purpose:
+
+| Alert | Element | Decision |
+|-------|---------|----------|
+| Long alternative text | Location map | Kept. The map is the page's only informative image and needs a full description. |
+| Possible heading | "Closed now · opens…" status line | Kept as a paragraph. It is a status message, not a section title. |
+| Noscript element | Sign-up fallback notice | Intended. It tells users without JavaScript how else to join. |
+
+Screenshots: [`docs/screenshots/wave-optimised.jpg`](docs/screenshots/wave-optimised.jpg), [`docs/screenshots/wave-baseline.jpg`](docs/screenshots/wave-baseline.jpg).
+
+### WebPageTest (webpagetest.org anonymous test, run by Catchpoint, Chrome 152)
+
+Anonymous tests allow only a region, device and connection choice and **one run per test**, so each number below is a single run (no median).
+
+| Metric | Baseline mobile | Optimised mobile | Baseline desktop | Optimised desktop |
+|--------|-----------------|------------------|------------------|-------------------|
+| Profile | iPhone 15, 4G (9 Mbps, 170 ms RTT), Singapore | same | Desktop, WiFi (240/120 Mbps, 2 ms RTT), Tokyo | same |
+| First Contentful Paint | 2.210 s | **1.122 s** | 0.665 s | **0.355 s** |
+| Largest Contentful Paint | 5.109 s | **1.630 s** | 1.156 s | **0.572 s** |
+| Cumulative Layout Shift | 0 | 0 | **0.439** | **0** |
+| Speed Index | 3.624 s | **1.300 s** | 1.071 s | **0.441 s** |
+| Start Render | 2.2 s | 1.1 s | 0.6 s | 0.3 s |
+| Time to First Byte | 0.950 s | 0.955 s | 0.213 s | 0.222 s |
+| Total Blocking Time | 0 s | 0 s | 0 s | 0 s |
+| Document complete | 7.915 s | 1.486 s | 1.121 s | 0.505 s |
+| Page weight | 6,652,435 B (6.3 MB) | **18,336 B (18 KB)** | 6,647,293 B (6.3 MB) | **35,196 B (34 KB)** |
+| Requests | 10 | 5 | 10 | 8 |
+| Render-blocking requests | 4 | **0** | 4 | **0** |
+| HTTP 4xx | 1 | 0 | 1 | 0 |
+
+What the hosted tests added beyond the local Lighthouse runs:
+
+- **A real layout shift.** Locally, Lighthouse measured CLS 0 for the baseline because the images arrived before the first paint. On the real network the desktop baseline scored **CLS 0.439** ("major layout shifts"), confirming the `unsized-images` warning. The optimised page, with `width`/`height` on every image, stayed at 0.
+- **A missing favicon.** The baseline has no `<link rel="icon">`, so browsers request `https://takshaksinghania.github.io/favicon.ico`, which returns **404**. This only shows up when the site is served below a domain root, not on the local server. The optimised page links its own favicon and had no errors.
+- **Lazy loading on a real network.** The optimised mobile run made only 5 requests: HTML, `main.min.js`, `hero-reading-room-1600.avif` (the right size for the iPhone 15's 3× screen), `map.svg` and `favicon.svg`. The three event images, far below the fold, were never downloaded.
+- **TTFB is the host, not the page.** Time to first byte is the same for both pages (about 0.95 s on the mobile profile, 0.22 s on desktop), because it is GitHub Pages' server response time plus the network round trips. All of the difference comes from what each page loads after that.
+
+Screenshots: `docs/screenshots/webpagetest-{optimised,baseline}-{mobile,desktop}.jpg`. Result links (public, may expire) are in `reports/hosted-tests.json`.
+
 ## Defects found and fixed during this work
 
 | # | Defect | Fix |
@@ -111,10 +174,9 @@ Baseline violations: `color-contrast` (serious, 23), `region` (moderate, 17), `l
 
 | Tool | Why not | How to run it |
 |------|---------|---------------|
-| WAVE | Needs a publicly reachable URL or the browser extension in a normal browser profile | Enable GitHub Pages for this repo, then open `https://wave.webaim.org/report#/<page-url>` for `/` and `/baseline/`, or use the WAVE extension on `npm run serve` |
-| WebPageTest | Needs a public URL | On webpagetest.org, test both URLs with "Moto G (gen 4), 4G, 3 runs" and compare the median runs |
+| WebPageTest with several runs / custom devices | Anonymous tests allow one run and a fixed device list | Sign in to WebPageTest (free account) and repeat with 3+ runs per profile, then compare median runs |
 | Screen readers (NVDA, JAWS, VoiceOver) | Not available in this environment | Navigate by landmarks and headings, open the FAQ, submit the empty form and confirm the status message and field errors are announced |
-| Real devices / field data | Only local lab runs | Host the page and check PageSpeed Insights / Chrome UX Report after real visits |
+| Real devices / field data | WebPageTest runs are lab tests on emulated devices; the site has no real visitors yet | After real visits, check PageSpeed Insights / Chrome UX Report |
 
 ## Reproduce
 

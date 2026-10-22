@@ -22,6 +22,19 @@ An information and sign-up page for a fictional public library, rebuilt from an 
 | axe violations | 9 rules / 48 elements | **0** | | |
 | html-validate errors | 6 | **0** | | |
 
+### Hosted results (GitHub Pages, single runs)
+
+Live pages: [optimised](https://takshaksinghania.github.io/frontend-internship-week4-performance-accessibility/) · [baseline](https://takshaksinghania.github.io/frontend-internship-week4-performance-accessibility/baseline/)
+
+| | Baseline | Optimised |
+|---|---|---|
+| **WAVE** errors / contrast errors / alerts | 7 / 32 / 15 (AIM 3.4/10) | **0 / 0 / 3** (AIM 10/10) |
+| **WebPageTest** mobile (iPhone 15, 4G, Singapore): LCP / FCP / weight | 5.11 s / 2.21 s / 6.3 MB | **1.63 s / 1.12 s / 18 KB** |
+| **WebPageTest** desktop (WiFi, Tokyo): LCP / CLS / weight | 1.16 s / **0.439** / 6.3 MB | **0.57 s / 0 / 34 KB** |
+| Render-blocking requests (WebPageTest) | 4 | **0** |
+
+The hosted runs also found a layout shift on the baseline that the local runs missed, and a `favicon.ico` 404 on the baseline. Details and result links are in TESTING.md and `reports/hosted-tests.json`.
+
 Full data: [`reports/audit-summary.json`](reports/audit-summary.json); Lighthouse HTML reports for each median run are in [`reports/`](reports/). Lab results on a local server; see [TESTING.md](TESTING.md) for the method.
 
 ## Assignment objective
@@ -81,8 +94,8 @@ npm run screenshots  # regenerate docs/screenshots
 
 ## Known limitations
 
-- WAVE and WebPageTest were not run because they need a public URL (see TESTING.md for steps).
+- WebPageTest was run anonymously, so each profile has a single run rather than a median of several.
 - Screen readers were not tested manually.
-- Lab data from a local server, not field data.
+- All performance numbers are lab data (local Lighthouse and WebPageTest's emulated devices), not field data from real visitors.
 - Demonstration form with no backend; without JavaScript it shows a notice.
 - Fictional library and generated illustrations.
