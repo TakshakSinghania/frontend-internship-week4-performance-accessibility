@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!-- BASELINE: the unoptimised starting version, kept only so it can be measured against the optimised page.
+     It intentionally contains common performance and accessibility problems. See baseline/README.md. -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Library</title>
+  <link rel="stylesheet" href="vendor/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="vendor/jquery.js"></script>
+  <script src="js/script.js"></script>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="logo">Riverside Public Library</div>
+      <div class="menu">
+        <a href="#visit">Visit</a>
+        <a href="#events">Events</a>
+        <a href="#services">Services</a>
+        <a href="#join">Join</a>
+        <a href="#access">Accessibility</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <img src="img/hero-reading-room.png" class="hero-img">
+    <div class="container hero-text">
+      <h1>A library for everyone in Riverside</h1>
+      <p class="light">Borrow books, use free Wi-Fi and computers, join a club or just find a quiet place to read. Membership is free for everyone who lives, works or studies in Riverside.</p>
+      <a href="#join" class="btn btn-warning pulse">Get a free library card</a>
+      <a href="#events" class="btn btn-outline-light">See what's on</a>
+    </div>
+  </div>
+
+  <div class="container section" id="visit">
+    <h4>Visit us</h4>
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table">
+          <tr><td>Monday to Friday</td><td>09:00</td><td>20:00</td></tr>
+          <tr><td>Saturday</td><td>10:00</td><td>18:00</td></tr>
+          <tr><td>Sunday</td><td>12:00</td><td>16:00</td></tr>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <p class="light">12 Ghat Road, Riverside, Bhopal 462001. Bus routes 4, 11 and 27 stop outside. There are 20 bicycle stands and two accessible parking bays at the front entrance.</p>
+        <a href="#access">Click here</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container section" id="events">
+    <h4>What's on this month</h4>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card" id="event">
+          <img src="img/event-storytime.png" alt="image">
+          <div class="card-body">
+            <div class="date">Every Saturday, 10:30</div>
+            <div class="title">Storytime for under-5s</div>
+            <p class="light">Songs, rhymes and picture books in the children's corner. No booking needed.</p>
+            <a href="mailto:events@riversidelibrary.example">Read more</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" id="event">
+          <img src="img/event-coding-club.png" alt="image">
+          <div class="card-body">
+            <div class="date">Wednesdays, 17:00</div>
+            <div class="title">Teen Coding Club</div>
+            <p class="light">Build games and websites with volunteers from local colleges. Ages 12 to 17; laptops provided.</p>
+            <a href="mailto:events@riversidelibrary.example">Read more</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" id="event">
+          <img src="img/event-book-circle.png" alt="image">
+          <div class="card-body">
+            <div class="date">First Thursday, 18:30</div>
+            <div class="title">Hindi &amp; English Book Circle</div>
+            <p class="light">A friendly monthly discussion. This month: short stories by Premchand, in either language.</p>
+            <a href="mailto:events@riversidelibrary.example">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container section" id="services">
+    <h4>Services</h4>
+    <div class="row">
+      <div class="col-md-4"><div class="service"><b>Borrow</b><br><span class="light">Up to 12 books, e-books and audiobooks at a time, free of charge.</span></div></div>
+      <div class="col-md-4"><div class="service"><b>Computers and Wi-Fi</b><br><span class="light">30 computers and free Wi-Fi across the building.</span></div></div>
+      <div class="col-md-4"><div class="service"><b>Print and scan</b><br><span class="light">Black-and-white printing at ₹2 per page.</span></div></div>
+      <div class="col-md-4"><div class="service"><b>Study rooms</b><br><span class="light">Book a quiet room for up to three hours.</span></div></div>
+      <div class="col-md-4"><div class="service"><b>Home library service</b><br><span class="light">Books delivered to people who cannot visit.</span></div></div>
+      <div class="col-md-4"><div class="service"><b>Local history</b><br><span class="light">Maps, newspapers and photographs of Riverside since 1900.</span></div></div>
+    </div>
+  </div>
+
+  <div class="container section" id="access">
+    <h4>Accessibility at the library</h4>
+    <p class="light">Step-free entrance and lift to all floors. Hearing loop at the help desk. Large-print books and audiobooks. Two computers with screen-reader and magnifier software. A quiet hour every Tuesday 10:00–11:00 with lights dimmed and no announcements.</p>
+  </div>
+
+  <div class="container section" id="join">
+    <h4>Get a free library card</h4>
+    <form id="signup">
+      <input type="text" id="name" class="form-control mb-2" placeholder="Full name">
+      <input type="text" id="email" class="form-control mb-2" placeholder="Email">
+      <input type="text" id="phone" class="form-control mb-2" placeholder="Phone">
+      <select id="branch" class="form-control mb-2">
+        <option>Choose branch</option>
+        <option>Riverside Central</option>
+        <option>Lakeside</option>
+        <option>Old City</option>
+      </select>
+      <input type="checkbox" id="large"> Large print
+      <input type="checkbox" id="audio"> Audiobooks
+      <br><br>
+      <div class="btn btn-warning" id="submit">Submit</div>
+    </form>
+  </div>
+
+  <div class="container section">
+    <h4>FAQ</h4>
+    <div class="faq-question">Who can join?</div>
+    <div class="faq-answer">Anyone who lives, works or studies in Riverside. Bring one proof of address.</div>
+    <div class="faq-question">How long can I keep a book?</div>
+    <div class="faq-answer">Three weeks. You can renew twice online or at the desk if nobody else has reserved it.</div>
+    <div class="faq-question">Are there late fees?</div>
+    <div class="faq-answer">No. We removed late fees in 2024, but please return items so others can borrow them.</div>
+    <div class="faq-question">Can I suggest a book to buy?</div>
+    <div class="faq-answer">Yes. Ask at the desk or email the library with the title and author.</div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <span class="light">Riverside Public Library · 12 Ghat Road, Riverside · 0755 000 2468 · hello@riversidelibrary.example</span>
+    </div>
+  </div>
+</body>
+</html>
