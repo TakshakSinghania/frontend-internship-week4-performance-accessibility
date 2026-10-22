@@ -1,0 +1,26 @@
+{
+  "name": "week-4-performance-accessibility",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Riverside Public Library page optimised for performance and accessibility, with the unoptimised baseline kept for comparison.",
+  "type": "module",
+  "scripts": {
+    "images": "node scripts/generate-images.mjs",
+    "build": "node scripts/build.mjs",
+    "serve": "node scripts/serve.mjs",
+    "validate": "html-validate index.html && csstree-validator css/styles.css",
+    "a11y": "node --test tests/",
+    "audit": "node scripts/audit.mjs",
+    "screenshots": "node scripts/screenshots.mjs",
+    "test": "npm run validate && npm run a11y"
+  },
+  "devDependencies": {
+    "axe-core": "4.14.0",
+    "csstree-validator": "4.0.1",
+    "esbuild": "0.28.2",
+    "html-validate": "11.17.0",
+    "lighthouse": "13.5.0",
+    "puppeteer-core": "25.16.0",
+    "sharp": "0.35.5"
+  }
+}
